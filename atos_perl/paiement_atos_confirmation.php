@@ -28,22 +28,22 @@ foreach ($_GET as $key => $value) $$key = $value;
 	include_spip('base/abstract_sql');
 	
 	
-	// Récupération de la variable cryptée DATA
+	// Rï¿½cupï¿½ration de la variable cryptï¿½e DATA
 
 	$DATA = escapeshellcmd($_POST["DATA"]);
 	$message="message=$DATA";
 
-	// Initialisation du chemin du fichier pathfile (à modifier)
+	// Initialisation du chemin du fichier pathfile (ï¿½ modifier)
     //   ex :
     //    -> Windows : $pathfile="pathfile=c:\\repertoire\\pathfile"
     //    -> Unix    : $pathfile="pathfile=/home/repertoire/pathfile"
     //
-    // Cette variable est facultative. Si elle n'est pas renseignée,
-    // l'API positionne la valeur à "./pathfile".
+    // Cette variable est facultative. Si elle n'est pas renseignï¿½e,
+    // l'API positionne la valeur ï¿½ "./pathfile".
 
 	$pathfile="pathfile=conf/pathfile";
 
-	//Initialisation du chemin de l'executable response (à modifier)
+	//Initialisation du chemin de l'executable response (ï¿½ modifier)
 	//ex :
 	//-> Windows : $path_bin = "c:\\repertoire\\bin\\response"
 	//-> Unix    : $path_bin = "/home/repertoire/bin/response"
@@ -53,11 +53,15 @@ foreach ($_GET as $key => $value) $$key = $value;
 
 	// Appel du binaire response
 
-	$result=exec("$path_bin $message $pathfile");
+    $parm = $message;
+
+
+    $result = file_get_contents($urlperl."/atos_request.pl?".$parm);
+
 
 	//	Sortie de la fonction : !code!error!v1!v2!v3!...!v29
-	//		- code=0	: la fonction retourne les données de la transaction dans les variables v1, v2, ...
-	//				: Ces variables sont décrites dans le GUIDE DU PROGRAMMEUR
+	//		- code=0	: la fonction retourne les donnï¿½es de la transaction dans les variables v1, v2, ...
+	//				: Ces variables sont dï¿½crites dans le GUIDE DU PROGRAMMEUR
 	//		- code=-1 	: La fonction retourne un message d'erreur dans la variable error
 
 
@@ -100,7 +104,7 @@ foreach ($_GET as $key => $value) $$key = $value;
 
 	 sql_updateq('spip_formulaires_transactions', array('statut_transaction' => 1), 'ref_transaction=' . sql_quote($transaction_id));
 
-	// Initialisation du chemin du fichier de log (à modifier)
+	// Initialisation du chemin du fichier de log (ï¿½ modifier)
     //   ex :
     //    -> Windows : $logfile="c:\\repertoire\\log\\logfile.txt";
     //    -> Unix    : $logfile="/home/repertoire/log/logfile.txt";
@@ -128,7 +132,7 @@ fputs($fp, "code $customer_ip_address \n");
  	}
 	else {
 
-	// OK, Sauvegarde des champs de la réponse
+	// OK, Sauvegarde des champs de la rï¿½ponse
 
 	fwrite( $fp, "merchant_id : $merchant_id\n");
 	fwrite( $fp, "merchant_country : $merchant_country\n");
