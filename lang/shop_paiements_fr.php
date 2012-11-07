@@ -6,8 +6,8 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 
-	//P
-	'atos_paiement_securise' => 'PAIEMENT SECURISE ATOS '
+	//A
+	'atos_paiement_securise' => 'PAIEMENT SECURISE ATOS ',
 
 	// T
 	'titre_atos' => 'ATOS - Paiement Securise sur Internet'
