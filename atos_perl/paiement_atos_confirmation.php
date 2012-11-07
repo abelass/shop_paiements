@@ -56,7 +56,7 @@ foreach ($_GET as $key => $value) $$key = $value;
     $parm = $message;
 
 
-    $result = file_get_contents($urlperl."/atos_request.pl?".$parm);
+    $result = file_get_contents($urlperl."/atos_response.pl?".$parm);
 
 
 	//	Sortie de la fonction : !code!error!v1!v2!v3!...!v29
