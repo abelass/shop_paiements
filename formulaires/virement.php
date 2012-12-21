@@ -1,6 +1,6 @@
 <?php
 
-function formulaires_transference_charger_dist(){
+function formulaires_virement_charger_dist(){
 	
 	$valeurs = array(
 		'id_commande'=>_request('id_commande'),		
@@ -11,7 +11,7 @@ function formulaires_transference_charger_dist(){
 return $valeurs;
 }
 
-function formulaires_transference_traiter_dist(){ 
+function formulaires_virement_traiter_dist(){ 
 	$retour = array();
 	
 	sql_updateq('spip_commandes',array('type_paiement'=>'transference'),'id_commande='._request('id_commande'));

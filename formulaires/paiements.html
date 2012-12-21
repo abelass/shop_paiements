@@ -1,0 +1,39 @@
+<div class="formulaire_spip formulaire_paiement">
+    #SET{type_paiements,#CONFIG{shop_paiements/type_payements}}
+    <ul class='liste'>
+        [(#VAL{cash}|in_array{#GET{type_paiements}}|oui)<li>
+            <div class="ajax">#FORMULAIRE_CASH{#ARRAY{
+                details,#ENV{details},
+                id_commande,#ID_COMMANDE,
+                }}
+             </div>
+        </li>]
+        
+        [(#VAL{virement}|in_array{#GET{type_paiements}}|oui)<li>
+            <div  class="ajax">
+        [(#FORMULAIRE_VIREMENT{#ARRAY{
+             details,#ENV{details},
+             id_commande,#ID_COMMANDE,
+          }})]
+          </div>
+          </li>]
+    
+        [(#VAL{paypal}|in_array{#GET{type_paiements}}|oui)<li>
+        [(#FORMULAIRE_PAYPAL{#ARRAY{
+             custom,payer_commande,
+             libelle,Commande #ID_COMMANDE,
+             identifiant,#REFERENCE,
+             redirect_ok, #URL_ACTION_AUTEUR{
+                            supprimer_panier_encours,
+                            "",
+                            #URL_PAGE{
+                                shop,
+                               appel=paiement,
+                               reference=#REFERENCE}},
+             details,#ENV{details},
+             bouton_paypal_acheter,#CHEMIN_IMAGE{paypal_curved.png}|image_reduire{75,*}|extraire_attribut{src},
+          }})]
+          </li>]
+      
+      </ul>
+</div>	
