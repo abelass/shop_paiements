@@ -8,17 +8,66 @@
 	<form method="post" action="#ENV{action}">
 	<div>
 		#ACTION_FORMULAIRE{#ENV{action}}
-
 		<ul>
-			[(#SAISIE{checkbox, type_payements,
-				label=<:shop_paiements:type_payements:>,
-				datas=#ARRAY{
-				    cash,<:shop_paiements:cash:>,
-				    paypal,<:shop_paiements:paypal:>,	
-				    virement,<:shop_paiements:virement:>,
-				    atos,<:shop_paiements:atos:>,
-				}
-				})]
+		    <li class="fieldset">
+            <fieldset><legend><:shop_paiements:titre_details_commercant:></legend>
+                <ul>
+              [(#SAISIE{input,nom_societe,
+                label=<:shop_paiements:titre_nom_societe:>,
+                })]
+              [(#SAISIE{textarea,adresse,
+                label=<:shop_paiements:titre_adresse:>,
+                })]
+              [(#SAISIE{input,telephone,
+                label=<:shop_paiements:titre_telephone:>,
+                })] 
+              [(#SAISIE{input,mobile,
+                label=<:shop_paiements:titre_mobile:>,
+                })] 
+              [(#SAISIE{input,tva,
+                label=<:shop_paiements:titre_tva:>,
+                })] 
+              [(#SAISIE{input,nr_entreprise,
+                label=<:shop_paiements:titre_nr_entreprise:>,
+                })]                 
+              [(#SAISIE{input,nr_compte,
+                label=<:shop_paiements:titre_nr_compte:>,
+                })]
+              [(#SAISIE{input,iban,
+                label=<:shop_paiements:titre_iban:>,
+                })] 
+              [(#SAISIE{input,bic,
+                label=<:shop_paiements:titre_bic:>,
+                })]                                
+                </ul>
+            </fieldset>  		        
+		    </li>
+		    <li class="fieldset">
+		    <fieldset><legend><:shop_paiements:titre_paiements:></legend>
+		        <ul>
+    			[(#SAISIE{checkbox, type_paiements,
+    				label=<:shop_paiements:titre_type_paiements:>,
+    				datas=#ARRAY{
+    				    cash,<:shop_paiements:cash:>,
+    				    paypal,<:shop_paiements:paypal:>,	
+    				    virement,<:shop_paiements:virement:>,
+    				    atos,<:shop_paiements:atos:>,
+    				}
+    				})]
+    		<BOUCLE_messages(DATA){source tableau,#CONFIG{shop_paiements/type_paiements}}>
+    		 [(#SAISIE{textarea,message_paiement_#VALEUR,
+                    label=[(#VAL{shop_paiements:titre_message_paiement_#VALEUR}|_T)],
+                    })]
+    		</BOUCLE_messages>		
+    				
+
+    			 
+    		
+
+                </ul>
+            </fieldset>   
+			</li>	
+    
 		</ul>
 
 		<input type="hidden" name="_meta_casier" value="shop_paiements" />

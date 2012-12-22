@@ -1,5 +1,6 @@
 <div class="formulaire_spip formulaire_paiement">
-    #SET{type_paiements,#CONFIG{shop_paiements/type_payements}}
+    #SET{type_paiements,#CONFIG{shop_paiements/type_paiements}}
+    [(#GET{type_paiements}|is_array|oui)
     <ul class='liste'>
         [(#VAL{cash}|in_array{#GET{type_paiements}}|oui)<li>
             <div class="ajax">#FORMULAIRE_CASH{#ARRAY{
@@ -35,5 +36,6 @@
           }})]
           </li>]
       
-      </ul>
+      </ul>]
+       [(#GET{type_paiements}|is_array|non)Pas de paiement configuré]
 </div>	
