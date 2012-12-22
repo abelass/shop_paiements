@@ -11,6 +11,14 @@ function formulaires_cash_traiter_dist($options = array()){
     $id_commande=$options['id_commande'];
     $details=$options['details'];
     $valeurs = $options;
+    
+
+  //on institue la commande
+  if($action = charger_fonction('instituer_commande', 'action',true)) {
+        $action($id_commande."-attente");
+        sql_updateq('spip_commandes',array('type_paiement'=>'cash'),'id_commande='.$id_commande);
+      
+  }    
 
     $montants=array();
     if(is_array($details)){
@@ -19,10 +27,6 @@ function formulaires_cash_traiter_dist($options = array()){
           }
       }
 
-  
-  $commandes=test_plugin_actif('commandes');
- 
-  if($commandes) sql_updateq('spip_commandes',array('type_paiement'=>'cash','statut'=>'attente'),'id_commande='.$id_commande);
 
    //Calculer le prix
    $montant=prix_formater(array_sum($montants));
@@ -36,8 +40,7 @@ function formulaires_cash_traiter_dist($options = array()){
    $valeurs['message_ok'].= _T('shop_paiements:explication_montant',array('montant'=>$montant)).'<br/>'; 
    $valeurs['message_ok'].= _T('shop_paiements:explication_confirmation_mail').'<br/>';      
    $valeurs['message_ok'].= recuperer_fond('inclure/message_paiement_cash');   
-   
-   $valeurs['envoi']='ok';
+
    $valeurs['editable']=false;
    
    // c'est tout bon, on envoie ca au pipeline pour traitements
@@ -47,21 +50,7 @@ function formulaires_cash_traiter_dist($options = array()){
             ),
             'data'=>$valeurs)
         );
-   
-	// Notifications
-    include_spip('inc/config');
-    $config = lire_config('commandes');
-    if ( $valeurs['envoi']=='ok') {
-        $notifications = charger_fonction('notifications', 'inc', true);
-        $options = array();
-        if( $config['expediteur'] != "facteur" )
-            $options['expediteur'] = $config['expediteur_'.$config['expediteur']];
 
-        // Envoyer au vendeur et au client
-        $notifications('commande_vendeur', $id_commande, $options);
-        if($config['client'])
-            $notifications('commande_client', $id_commande, $options);
-    }
     return $valeurs;
 }
 

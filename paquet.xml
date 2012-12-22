@@ -38,6 +38,7 @@
 		<onglet nom="shop_paiements" titre="shop_paiements:shop_paiements_titre" parent="configuration" icone="images/shop_paiements-24.png" />
 	-->
 	<necessite nom="notifavancees" compatibilite="[0.2.1;]" />	
+	<necessite nom="commandes" compatibilite="[0.9.1;]" />	
 	<pipeline nom="autoriser" inclure="shop_paiements_autorisations.php" /> 
 
 
