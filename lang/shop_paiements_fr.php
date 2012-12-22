@@ -10,12 +10,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// C
 	'cash' => 'Cash',
-	"cash_explication"=>'Paiement cash<br/>Montant: @montant@ <br/>Vous recevrez un confimation de la commande par mail',	
+	"explication_cash"=>'Vous avez choisis d\'effectuer d\'effectuer le paiment en cash',
+	'explication_confirmation_mail'=>'Vous recevrez un confimation de la commande par mail',		
+	'explication_montant'=>'Montant: @montant@',	
+	"explication_virement"=>'Vous avez choisis d\'effectuer d\'effectuer le paiment via virement bancaire ',		
 	'cfg_titre_parametrages' => 'Paramétrages',
 
     //M
+    "message_paiement"=>'Message :',       
     "message_paiement_cash"=>'Vous avez choisis d\'effectuer le paiement en cash',   
-    "message_paiement_cash"=>'Vous avez choisis d\'effectuer le paiement en cash',       
+    "message_paiement_virement"=>'Veuillez virez le montant dû au compte suivant :',       
     
     //P
     "paypal"=>'Paypal',     
@@ -44,6 +48,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	
 	//V
 	'virement'=>'Virement',
+	
 );
 
 ?>                         
