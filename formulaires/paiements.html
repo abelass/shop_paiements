@@ -11,7 +11,7 @@
         </li>]
         
         [(#VAL{virement}|in_array{#GET{type_paiements}}|oui)<li>
-            <div  class="ajax">
+            <div class="ajax">
         [(#FORMULAIRE_VIREMENT{#ARRAY{
              details,#ENV{details},
              id_commande,#ID_COMMANDE,
