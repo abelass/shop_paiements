@@ -50,9 +50,9 @@ function formulaires_cash_traiter_dist($options = array()){
         $notifications = charger_fonction('notifications', 'inc');
         $options=array('type_paiement'=>'cash','details'=>$details);
         // Envoyer au vendeur et au client
-        $notifications('commande_vendeur_form', $id_commande, $options);
+        $notifications('commande_vendeur', $id_commande, $options);
 
-        $notifications('commande_client_form', $id_commande, $options);
+        $notifications('commande_client', $id_commande, $options);
     }
     return $valeurs;
 }
