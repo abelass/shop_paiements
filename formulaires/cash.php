@@ -47,12 +47,15 @@ function formulaires_cash_traiter_dist($options = array()){
     include_spip('inc/config');
     $config = lire_config('commandes');
     if ( $valeurs['envoi']=='ok') {
-        $notifications = charger_fonction('notifications', 'inc');
-        $options=array('type_paiement'=>'cash','details'=>$details);
+        $notifications = charger_fonction('notifications', 'inc', true);
+        $options = array();
+        if( $config['expediteur'] != "facteur" )
+            $options['expediteur'] = $config['expediteur_'.$config['expediteur']];
+
         // Envoyer au vendeur et au client
         $notifications('commande_vendeur', $id_commande, $options);
-
-        $notifications('commande_client', $id_commande, $options);
+        if($config['client'])
+            $notifications('commande_client', $id_commande, $options);
     }
     return $valeurs;
 }
