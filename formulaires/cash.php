@@ -1,13 +1,9 @@
 <?php
 
 function formulaires_cash_charger_dist($options = array()){
-    
-    spip_log("options du formulaire paypal : ".print_r($options,true),"paypal");    
 
     $valeurs = $options;
-    
 
-	
 return $valeurs;
 }
 
@@ -28,22 +24,31 @@ function formulaires_cash_traiter_dist($options = array()){
  
   if($commandes) sql_updateq('spip_commandes',array('type_paiement'=>'cash','statut'=>'attente'),'id_commande='.$id_commande);
 
-    $montant=prix_formater(array_sum($montants));
+   //Calculer le prix
+   $montant=prix_formater(array_sum($montants));
   
+   //Supprimer le panier en cours
     $panier=charger_fonction('supprimer_panier_encours','action/');
     $panier();
-     $valeurs['message_ok']=_T('shop_paiements:cash_explication',array('montant'=>$montant)).'</div>';   
+    
+    //Le message de retour
+   $valeurs['message_ok'].= _T('shop_paiements:explication_cash').'<br/>';
+   $valeurs['message_ok'].= _T('shop_paiements:explication_montant',array('montant'=>$montant)).'<br/>'; 
+   $valeurs['message_ok'].= _T('shop_paiements:explication_confirmation_mail').'<br/>';      
+   $valeurs['message_ok'].= recuperer_fond('inclure/message_paiement_cash');   
+   
    $valeurs['envoi']='ok';
    $valeurs['editable']=false;
-            // c'est tout bon, on envoie ca au pipeline pour traitements
+   
+   // c'est tout bon, on envoie ca au pipeline pour traitements
     $valeurs=pipeline('traitement_paiements_forms', array(
             'args'=>array(
-                'type_paiment' => 'cash',
+                'type_paiement' => 'cash',
             ),
             'data'=>$valeurs)
         );
    
-	   // Notifications
+	// Notifications
     include_spip('inc/config');
     $config = lire_config('commandes');
     if ( $valeurs['envoi']=='ok') {
