@@ -24,11 +24,12 @@
 <p><:commandes:details_commande:></p>
 <INCLURE{fond=inclure/commande,id_commande=#ID_COMMANDE,statut=#STATUT,format_envoi=#ENV{format_envoi}}>
 
-<BOUCLE_commande(COMMANDES_DETAILS){id_commande}{par id_commandes_detail}{si #ENV{qui}|=={client}|et{#STATUT|!={paye}}|oui}>
+[(#ENV{qui}|=={client}|et{#STATUT|!={paye}}|oui)
     [(#CHEMIN{inclure/message_paiement_#TYPE_PAIEMENT.html}|oui)
     <h3><:shop_paiements:message_paiement:></h3>
-     #INCLURE{fond=inclure/message_paiement_#TYPE_PAIEMENT,env}
+     [(#INCLURE{fond=inclure/message_paiement_#TYPE_PAIEMENT,env})]
      ]
+   ]
 </BOUCLE_commande>
 
 
