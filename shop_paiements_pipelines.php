@@ -7,13 +7,13 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
+// Eliminer le panier après le retour paypal
+function shop_paiements_traitement_paypal($flux){
+   
+    $reference = $flux['args']['paypal']['invoice'];
+    
+    sql_updateq('spip_commandes',array('type_paiement'=>'paypal'),'reference='.sql_quote($reference));
 
-/*
- * Un fichier de pipelines permet de regrouper
- * les fonctions de branchement de votre plugin
- * sur des pipelines existants.
- */
-
-
-
+    return $flux;
+}
 ?>
