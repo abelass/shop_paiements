@@ -55,12 +55,30 @@
     				    atos_perl,<:shop_paiements:atos_perl:>,    				    
     				}
     				})]
+
     		<BOUCLE_messages(DATA){source tableau,#CONFIG{shop_paiements/type_paiements}}>
+    		<li  class="fieldset">
+    		    <fieldset><legend>[(#VAL{shop_paiements:configurations-spécifiques_#VALEUR}|_T)]</legend>
+    		    <ul>
     		 [(#SAISIE{textarea,message_paiement_#VALEUR,
                     label=[(#VAL{shop_paiements:titre_message_paiement_#VALEUR}|_T)],
                     })]
-    		</BOUCLE_messages>		
-    				
+            [(#VALEUR|=={atos_perl}|oui)
+                [(#SAISIE{input,merchant_id_#VALEUR,
+                    explication=<:shop_paiements:obligatoire:>,
+                    label=[(#VAL{shop_paiements:merchant_id}|_T)],
+                    })]
+                [(#SAISIE{pays,merchant_country_#VALEUR,
+                    defaut=70,
+                    label=[(#VAL{shop_paiements:titre_message_paiement_#VALEUR}|_T)],
+                    })]                                        
+            ]
+                          </ul> 
+              </fieldset>
+            </li>   
+    		</BOUCLE_messages>	
+
+
 
     			 
     		
