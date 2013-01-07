@@ -2,8 +2,10 @@
     #SET{type_paiements,#CONFIG{shop_paiements/type_paiements}}
     [(#GET{type_paiements}|is_array|oui)
     <ul class='liste'>
-        [(#VAL{cash}|in_array{#GET{type_paiements}}|oui)<li>
-            <div class="ajax">#FORMULAIRE_CASH{#ARRAY{
+        [(#VAL{cash}|in_array{#GET{type_paiements}}|oui)
+        <li>
+            <div class="ajax">
+                #FORMULAIRE_CASH{#ARRAY{
                 details,#ENV{details},
                 id_commande,#ID_COMMANDE,
                 }}
@@ -35,12 +37,18 @@
              bouton_paypal_acheter,#CHEMIN_IMAGE{paypal_curved.png}|image_reduire{75,*}|extraire_attribut{src},
           }})]
           </li>]
-        [(#VAL{atos}|in_array{#GET{type_paiements}}|oui)<li>
+        [(#VAL{atos}|in_array{#GET{type_paiements}}|oui)
+        <li>
         <a href="[(#URL_PAGE{paiment}|parametre_url{paiment,atos})]"><:shop_paiements:carte_bancaire:></a>
           </li>]  
-        [(#VAL{atos_perl}|in_array{#GET{type_paiements}}|oui)<li>
-        <a href="[(#URL_PAGE{paiement}|parametre_url{paiement,atos_perl}|parametre_url{id_commande,#ID_COMMANDE}|parametre_url{prix_total,#ENV{prix_total}})]"><:shop_paiements:carte_bancaire:></a>
-          </li>]               
+        [(#VAL{atos_perl}|in_array{#GET{type_paiements}}|oui)
+        <li>
+        [(#FORMULAIRE_ATOS_PERL{#ARRAY{
+             details,#ENV{details},
+             transaction_id,#ID_COMMANDE,
+          }})]
+          </li>
+          ]               
       </ul>]
        [(#GET{type_paiements}|is_array|non)Pas de paiement configuré]
 </div>	

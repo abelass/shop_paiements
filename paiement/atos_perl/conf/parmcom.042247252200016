@@ -10,7 +10,7 @@
 #ADVERT!merchant.gif!
 
 # URL de retour automatique de la reponse du paiement
-AUTO_RESPONSE_URL!http://www.domuni.eu/client/plugins/atos/conf_domuni_2012.php!
+AUTO_RESPONSE_URL!http://www.domuni.eu/plugins/shop_paiements/action/confirmation_atos_perl.php!
 
 # URL de retour suite a paiement refuse
 CANCEL_URL!http://www.domuni.eu/?fond=regret!
