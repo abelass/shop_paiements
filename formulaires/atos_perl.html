@@ -1,0 +1,11 @@
+<div class="formulaire_spip formulaire_cash">
+    [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[(#EDITABLE)
+	<form action="#ENV{action}" method="post">
+	   <div>
+			#ACTION_FORMULAIRE{#ENV{action}}
+			<p class="boutons"><input type="submit" name="prev" class="submit" value="<:shop_paiements:cash:>" /></p>
+
+		</div>
+	</form>]
+</div>
