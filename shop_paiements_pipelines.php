@@ -16,4 +16,25 @@ function shop_paiements_traitement_paypal($flux){
 
     return $flux;
 }
+
+function shop_paiements_recuperer_fond($flux){
+
+    $fond=$flux['args']['fond'] ;
+
+    $texte=$flux['data']['texte'];
+    $contexte=$flux['args']['contexte'];
+
+    
+    //Intervention dans l'affichage de la commande
+    if ($fond == 'prive/objets/contenu/commande'){
+        $patterns = array('#<div class="champ contenu_date_envoi#');
+        $type_paiement=recuperer_fond('inclure/type_paiement',$contexte);        
+        $replacements = array($type_paiement.'<div class="champ contenu_date_envoi');                      
+        $flux['data']['texte'] = preg_replace($patterns,$replacements,$texte,1);
+    }
+
+    
+    
+    return $flux;
+    }
 ?>
