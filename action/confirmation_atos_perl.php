@@ -16,7 +16,7 @@ function action_confirmation_atos_perl_dist($arg=null) {
     // N° de Marchand
     $merchant_id = lire_config('shop_paiements/merchant_id_atos_perl');
     
-    $pathbase =  str_replace(_DIR_PLUGIN_SHOP_PAIEMENTS.'formulaires','',dirname(__FILE__));
+    $pathbase =  str_replace(_DIR_PLUGIN_SHOP_PAIEMENTS.'action','',dirname(__FILE__));
 
    //Calculer le prix
    $total=array_sum($montants).'00';
@@ -78,21 +78,23 @@ $capture_day = $tableau[29];
 $capture_mode = $tableau[30];
 $data = $tableau[31];
 
-$valeurs=array('type_payement'=>'atos');
+$valeurs=array('type_paiement'=>'atos');
 
 
   //on institue la commande
   if($action = charger_fonction('instituer_commande', 'action',true)) {
-
-      switch($response_code){
+    spip_log('instituer la commande before switch','shop_paiements');
+   switch($response_code){
    case '00':
       /* Transaction approved */
-      $action($id_commande."-paye");
+      spip_log('paye','shop_paiements');
+      $action($transaction_id."-paye");
        break;
    case '12':
       /* Invalid amount
        PROBLEM LOCATION: MERCHANT */
-      $action($id_commande."-partiel");
+       spip_log('partiel','shop_paiements');
+      $action($transaction_id."-partiel");
       break;
       
       
