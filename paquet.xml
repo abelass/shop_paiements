@@ -1,7 +1,7 @@
 <paquet
 	prefix="shop_paiements"
 	categorie="divers"
-	version="1.1.0"
+	version="1.1.1"
 	etat="dev"
 	compatibilite="[3.0.5;3.0.*]"
 	logo="prive/themes/spip/images/shop_paiements-64.png"
@@ -18,7 +18,9 @@
 	<necessite nom="notifavancees" compatibilite="[0.2.1;]" />	
 	<necessite nom="commandes" compatibilite="[0.9.1;]" />
 	<necessite nom="pays" compatibilite="[2.1.1;]" />		
-	
+	<necessite nom="paypal" compatibilite="[0.2.0;]" />	
+	<necessite nom="commandes_paypal" compatibilite="[0.2.5;]" />		
+		
 	<pipeline nom="autoriser" inclure="shop_paiements_autorisations.php" /> 
 	<pipeline nom="traitement_paypal" inclure="shop_paiements_pipelines.php" /> 
 
