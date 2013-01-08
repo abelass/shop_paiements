@@ -69,7 +69,6 @@ $parm .= '&'.'language='.$language;
 $parm .= '&'.'payment_means=CB,1,VISA,1,MASTERCARD,1';
 $parm .= '&'.'header_flag=no';
 
-    echo $parm;
 
 $result = file_get_contents($urlperl."atos_request.pl?".$parm);
 
