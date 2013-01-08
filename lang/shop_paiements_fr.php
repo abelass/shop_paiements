@@ -7,6 +7,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
     //A
     'atos'=>'Atos',
+    'atos_perl'=>'Atos Perl',
 
 	// C
 	'cash' => 'Cash',
@@ -15,8 +16,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'explication_montant'=>'Montant: @montant@',	
 	"explication_virement"=>'Vous avez choisis d\'effectuer d\'effectuer le paiment via virement bancaire ',		
 	'cfg_titre_parametrages' => 'Paramétrages',
-
+	'configurations_specifiques' => 'Configurations spécifiques',	
+	
+    //L
+    "label_type_paiement"=>'Type de paiement :',  
+    
     //M
+    "merchant_id"=>'Merchant ID :',          
     "message_paiement"=>'Message :',       
     "message_paiement_cash"=>'Vous avez choisis d\'effectuer le paiement en cash',   
     "message_paiement_virement"=>'Veuillez virez le montant dû au compte suivant :',       
@@ -35,6 +41,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_paiements' => 'Les Paiements :',		
 	'titre_page_configurer_shop_paiements' => 'Shop Paiements :',
 	'titre_message_paiement_atos' => 'Le message à afficher pour le paiement par Atos :',
+	'titre_message_paiement_atos_perl' => 'Le message à afficher pour le paiement par Atos Perl :',	
 	'titre_message_paiement_cash' => 'Le message à afficher pour le paiement en cash :',	
 	'titre_message_paiement_paypal' => 'Le message à afficher pour le paiement par Paypal :',
 	'titre_message_paiement_virement' => 'Le message à afficher pour le paiement par virement bancaire :',				

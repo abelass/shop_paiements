@@ -58,7 +58,7 @@
 
     		<BOUCLE_messages(DATA){source tableau,#CONFIG{shop_paiements/type_paiements}}>
     		<li  class="fieldset">
-    		    <fieldset><legend>[(#VAL{shop_paiements:configurations-spécifiques_#VALEUR}|_T)]</legend>
+    		    <fieldset><legend>[(#VAL{shop_paiements:configurations_specifiques}|_T)] [(#VAL{shop_paiements:#VALEUR}|_T)]</legend>
     		    <ul>
     		 [(#SAISIE{textarea,message_paiement_#VALEUR,
                     label=[(#VAL{shop_paiements:titre_message_paiement_#VALEUR}|_T)],
