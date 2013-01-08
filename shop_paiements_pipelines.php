@@ -7,7 +7,7 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-// Eliminer le panier après le retour paypal
+// Insérer le type de paiement
 function shop_paiements_traitement_paypal($flux){
    
     $reference = $flux['args']['paypal']['invoice'];
