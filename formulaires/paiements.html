@@ -20,7 +20,14 @@
           }})]
           </div>
           </li>]
-    
+        [(#VAL{cheque}|in_array{#GET{type_paiements}}|oui)<li>
+            <div class="ajax">
+        [(#FORMULAIRE_CHEQUE{#ARRAY{
+             details,#ENV{details},
+             id_commande,#ID_COMMANDE,
+          }})]
+          </div>
+          </li>]
         [(#VAL{paypal}|in_array{#GET{type_paiements}}|oui)<li>
         [(#FORMULAIRE_PAYPAL{#ARRAY{
              custom,payer_commande,

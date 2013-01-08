@@ -11,7 +11,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// C
 	'cash' => 'Cash',
+	'cheque' => 'Cheque',	
+    
+    //E
 	"explication_cash"=>'Vous avez choisis d\'effectuer d\'effectuer le paiment en cash',
+	"explication_cheque"=>'Vous avez choisis d\'effectuer d\'effectuer le paiment par cheque',	
 	'explication_confirmation_mail'=>'Vous recevrez un confimation de la commande par mail',		
 	'explication_montant'=>'Montant: @montant@',	
 	"explication_virement"=>'Vous avez choisis d\'effectuer d\'effectuer le paiment via virement bancaire ',		
@@ -25,6 +29,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     "merchant_id"=>'Merchant ID :',          
     "message_paiement"=>'Message :',       
     "message_paiement_cash"=>'Vous avez choisis d\'effectuer le paiement en cash',   
+    "message_paiement_cheque"=>'Veuillez envoyer le cheque à l\'adresse suivante :', 
     "message_paiement_virement"=>'Veuillez virez le montant dû au compte suivant :',       
     
     //P
@@ -40,11 +45,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_iban' => 'IBAN :',	
 	'titre_paiements' => 'Les Paiements :',		
 	'titre_page_configurer_shop_paiements' => 'Shop Paiements :',
-	'titre_message_paiement_atos' => 'Le message à afficher pour le paiement par Atos :',
-	'titre_message_paiement_atos_perl' => 'Le message à afficher pour le paiement par Atos Perl :',	
-	'titre_message_paiement_cash' => 'Le message à afficher pour le paiement en cash :',	
-	'titre_message_paiement_paypal' => 'Le message à afficher pour le paiement par Paypal :',
-	'titre_message_paiement_virement' => 'Le message à afficher pour le paiement par virement bancaire :',				
+	'titre_message_adresse_cheque' => 'Adresse d\'envoi du chéque :',	
+	'titre_message_paiement' => 'Le message à afficher après le paiement :',			
 	'titre_mobile' => 'Mobile :',		
 	'titre_nom_societe' => 'Nom de Société :',
 	'titre_nr_compte' => 'Compte bancaire :',		

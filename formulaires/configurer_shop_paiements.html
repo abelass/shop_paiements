@@ -51,6 +51,7 @@
     				    cash,<:shop_paiements:cash:>,
     				    paypal,<:shop_paiements:paypal:>,	
     				    virement,<:shop_paiements:virement:>,
+    				    cheque,<:shop_paiements:cheque:>,    				    
     				    atos,<:shop_paiements:atos:>,
     				    atos_perl,<:shop_paiements:atos_perl:>,    				    
     				}
@@ -61,7 +62,7 @@
     		    <fieldset><legend>[(#VAL{shop_paiements:configurations_specifiques}|_T)] [(#VAL{shop_paiements:#VALEUR}|_T)]</legend>
     		    <ul>
     		 [(#SAISIE{textarea,message_paiement_#VALEUR,
-                    label=[(#VAL{shop_paiements:titre_message_paiement_#VALEUR}|_T)],
+                    label=[(#VAL{shop_paiements:titre_message_paiement}|_T)],
                     })]
             [(#VALEUR|=={atos_perl}|oui)
                 [(#SAISIE{input,merchant_id_#VALEUR,
@@ -72,6 +73,12 @@
                     defaut=70,
                     label=[(#VAL{shop_paiements:titre_message_paiement_#VALEUR}|_T)],
                     })]                                        
+            ]
+            [(#VALEUR|=={cheque}|oui)
+                [(#SAISIE{textarea,adresse_cheque,
+                        defaut=[(#CONFIG{shop_paiements/adresse})],
+                        label=<:shop_paiements:titre_message_adresse_cheque:>,
+                        })]
             ]
                           </ul> 
               </fieldset>
