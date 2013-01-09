@@ -21,7 +21,10 @@ function formulaires_atos_perl_charger_dist($options = array()){
     $merchant_id = lire_config('shop_paiements/merchant_id_atos_perl');
     
     $language = _request('lang');
-    $merchant_country = strtolower(sql_getfetsel('code','spip_pays','id_pays='.lire_config('shop_paiements/merchant_country_atos_perl')));
+    $pays=lire_config('shop_paiements/merchant_country_atos_perl');
+    if($pays)$merchant_country = strtolower(sql_getfetsel('code','spip_pays','id_pays='.lire_config('shop_paiements/merchant_country_atos_perl')));
+    else $merchant_country ='fr';
+    
 
     $montants=array();
     if(is_array($details)){
@@ -86,7 +89,6 @@ else if ($code != 0) {
     print ("Message erreur : $error <br>");
 }
 else {
-    print ("<br><br>");
     print ('<div class="logos_atos">'.$message.'</div>');
 }
 
