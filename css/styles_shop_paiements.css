@@ -1,2 +1,4 @@
-.liste-paiements li {float:left;}
-.logos_atos {float:left}
+.formulaire_spip .liste-paiements li {float:left;margin-left:1em}
+.logos_atos input{float:left;margin-right:1em}
+input.submit{height:35px; border:#bfbfbf 1px solid; border-radius:3px; background-color:#90e190;font-weight:bold}
+.liste-paiements .formulaire_spip p {margin:0;}
