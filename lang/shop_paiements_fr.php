@@ -12,6 +12,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'cash' => 'Cash',
 	'cheque' => 'Cheque',	
+	'choisir_mode_paiement' => 'Choisissez le mode de paiement',		
     
     //E
 	"explication_cash"=>'Vous avez choisis d\'effectuer d\'effectuer le paiment en cash',
