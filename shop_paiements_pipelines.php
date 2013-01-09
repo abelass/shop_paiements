@@ -24,7 +24,6 @@ function shop_paiements_recuperer_fond($flux){
     $texte=$flux['data']['texte'];
     $contexte=$flux['args']['contexte'];
 
-    
     //Intervention dans l'affichage de la commande
     if ($fond == 'prive/objets/contenu/commande'){
         $patterns = array('#<div class="champ contenu_date_envoi#');
@@ -33,8 +32,14 @@ function shop_paiements_recuperer_fond($flux){
         $flux['data']['texte'] = preg_replace($patterns,$replacements,$texte,1);
     }
 
-    
-    
     return $flux;
     }
+
+function shop_paiements_insert_head($flux){
+    // affichage du formulaire d'activation désactivation projets   
+
+       $flux .= '<link rel="stylesheet" href="'.find_in_path('css/styles_shop_paiements.css').'" type="text/css" media="all" />';
+    return $flux;   
+}
+
 ?>

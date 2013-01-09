@@ -24,5 +24,6 @@
 	<pipeline nom="autoriser" inclure="shop_paiements_autorisations.php" /> 
 	<pipeline nom="traitement_paypal" inclure="shop_paiements_pipelines.php" /> 
 	<pipeline nom="recuperer_fond" inclure="shop_paiements_pipelines.php" /> 
+	<pipeline nom="insert_head" inclure="shop_paiements_pipelines.php" /> 
 
 </paquet>
