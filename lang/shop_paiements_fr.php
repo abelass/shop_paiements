@@ -33,8 +33,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     "message_paiement_virement"=>'Veuillez virez le montant dû au compte suivant :',       
     
     //P
-    "paypal"=>'Paypal',     
-    
+    "paypal"=>'Paypal',
+        
+    // R
+    'retour_merci' => 'Votre r&egrave;glement a bien &eacute;t&eacute; enregistr&eacute;. Nous vous remercions de votre confiance. ',           
+     'retour_regret' => 'Nous vous informons que la procédure de paiement n\'a pas pu aboutir, si vous n\'êtes pas à l\'origine de cet échec veuillez vous renseigner auprès de votre établissement bancaire.<br/><br/>Bonne navigation et à bientôt.',     
     // S
     'shop_paiements_titre' => 'Shop Paiements',      
 
