@@ -1,5 +1,5 @@
 DEBUG!NO!
-D_LOGO!http://www.domuni.eu/beta/plugins/shop_paiements/paiement/atos_perl/logo/!
+D_LOGO!http://www.domuni.eu/plugins/shop_paiements/paiement/atos_perl/logo/!
 F_CERTIFICATE!/home/www/bbc2856153279059177f97da97d2fbc1/web/atos/certif!
 F_PARAM!/home/www/bbc2856153279059177f97da97d2fbc1/web/atos/parmcom!
 F_DEFAULT!/home/www/bbc2856153279059177f97da97d2fbc1/web/atos/parmcom.atos!

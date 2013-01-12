@@ -30,6 +30,7 @@ function shop_paiements_recuperer_fond($flux){
         $type_paiement=recuperer_fond('inclure/type_paiement',$contexte);        
         $replacements = array($type_paiement.'<div class="champ contenu_date_envoi');                      
         $flux['data']['texte'] = preg_replace($patterns,$replacements,$texte,1);
+        echo 'ok'.$type_paiement;
     }
 
     return $flux;
