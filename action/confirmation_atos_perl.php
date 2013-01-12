@@ -25,6 +25,7 @@ function action_confirmation_atos_perl_dist($arg=null) {
 
     // URL vers les scripts Perl (.pl), avec '/' final
     $urlperl = $urlbase ._DIR_PLUGIN_SHOP_PAIEMENTS."paiement/atos_perl/conf/";
+    //$urlperl = $urlbase."atos/";
 
     // Path ABSOLUs vers les binaires ATOS, et vers le path file
     $pathbin = $pathbase.'/'._DIR_PLUGIN_SHOP_PAIEMENTS."paiement/atos_perl/bin/";

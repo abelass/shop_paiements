@@ -49,10 +49,11 @@ function formulaires_atos_perl_charger_dist($options = array()){
     $currency_code = 978;
 
     // URL vers les scripts Perl (.pl), avec '/' final
+    //$urlperl = $urlbase."atos/";
     $urlperl = $urlbase ._DIR_PLUGIN_SHOP_PAIEMENTS."paiement/atos_perl/conf/";
 
     // Path ABSOLUs vers les binaires ATOS, et vers le path file
-    $pathbin = $pathbase.'/'._DIR_PLUGIN_SHOP_PAIEMENTS."paiement/atos_perl/bin/";
+    $pathbin = $pathbase._DIR_PLUGIN_SHOP_PAIEMENTS."paiement/atos_perl/bin/";
     $pathfile = $pathbase ._DIR_PLUGIN_SHOP_PAIEMENTS."paiement/atos_perl/conf/pathfile";
     //$pathfile = find_in_path("paiement/atos_perl/conf/pathfile");
 
