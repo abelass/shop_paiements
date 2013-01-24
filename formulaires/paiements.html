@@ -1,7 +1,7 @@
 <div class="formulaire_spip formulaire_paiement">
     #SET{type_paiements,#CONFIG{shop_paiements/type_paiements}}
     [(#GET{type_paiements}|is_array|oui)
-    <h2><:shop_paiements:choisir_mode_paiement:></h2>
+    <h2><:paiements:choisir_mode_paiement:></h2>
     <ul class='liste liste-paiements'>
         [(#VAL{cash}|in_array{#GET{type_paiements}}|oui)
         <li>
@@ -47,7 +47,7 @@
           </li>]
         [(#VAL{atos}|in_array{#GET{type_paiements}}|oui)
         <li>
-        <a href="[(#URL_PAGE{paiment}|parametre_url{paiment,atos})]"><:shop_paiements:carte_bancaire:></a>
+        <a href="[(#URL_PAGE{paiment}|parametre_url{paiment,atos})]"><:paiements:carte_bancaire:></a>
           </li>]  
         [(#VAL{atos_perl}|in_array{#GET{type_paiements}}|oui)
         <li>
