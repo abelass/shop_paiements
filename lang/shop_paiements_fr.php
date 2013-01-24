@@ -54,11 +54,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_mobile' => 'Mobile :',		
 	'titre_nom_societe' => 'Nom de Société :',
 	'titre_nr_compte' => 'Compte bancaire :',		
-	'titre_nr_entreprise' => 'Numéro entreprise :',				
+	'titre_nr_entreprise' => 'Numéro entreprise :',	
+	'titre_nr_paiements' => 'Paiements',					
 	'titre_telephone' => 'Téléphone :',
 	'titre_tva' => 'Numéro TVA :',				
 	'titre_type_paiements' => 'Les types de paiements disponibles :',	
-	
+	'titre_type_paiements' => 'Les types de paiements disponibles :',		
+
 	//V
 	'virement'=>'Virement',
 	
