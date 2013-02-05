@@ -80,26 +80,21 @@ function action_confirmation_atos_perl_dist($arg=null) {
 
   //on institue la commande
   if($action = charger_fonction('instituer_commande', 'action',true)) {
-    spip_log('instituer la commande before switch','shop_paiements');
-   switch($response_code){
-   case '00':
-      /* Transaction approved */
-      spip_log('paye','shop_paiements');
-      $action($transaction_id."-paye");
-       break;
-   case '12':
-      /* Invalid amount
-       PROBLEM LOCATION: MERCHANT */
-       spip_log('partiel','shop_paiements');
-      $action($transaction_id."-partiel");
-      break;
-      
-      
-  } 
-
-
-    
-}
+        spip_log('instituer la commande before switch','shop_paiements');
+       switch($response_code){
+       case '00':
+          /* Transaction approved */
+          spip_log('paye','shop_paiements');
+          $action($transaction_id."-paye");
+           break;
+       case '12':
+          /* Invalid amount
+           PROBLEM LOCATION: MERCHANT */
+           spip_log('partiel','shop_paiements');
+          $action($transaction_id."-partiel");
+          break;
+        } 
+    }
      //Insérer le type de paiement
      sql_updateq('spip_commandes', $valeurs, 'id_commande=' . sql_quote($transaction_id));
      
