@@ -27,20 +27,17 @@
 <p><:commandes:details_commande:></p>
 <INCLURE{fond=inclure/commande,id_commande=#ID_COMMANDE,statut=#STATUT,format_envoi=#ENV{format_envoi}}>
 
-[(#ENV{qui}|=={client}|et{#STATUT|!={paye}}|oui)
-    [(#CHEMIN{inclure/message_paiement_#TYPE_PAIEMENT.html}|oui)
-    <h3><:paiements:message_paiement:></h3>
-     [(#INCLURE{fond=inclure/message_paiement_#TYPE_PAIEMENT,env})]
-     ]
-   ]
-</BOUCLE_commande>
-
-
-
-
+    [(#ENV{qui}|=={client}|et{#STATUT|!={paye}}|oui)
+        [(#CHEMIN{inclure/message_paiement_#TYPE_PAIEMENT.html}|oui)
+        <h3><:shop_paiements:message_paiement:></h3>
+         [(#INCLURE{fond=inclure/message_paiement_#TYPE_PAIEMENT,env})]
+         ]
+       ]
+<//B_commande>
 <hr />
 
 <p><a href="#URL_SITE_SPIP">#URL_SITE_SPIP</a></p>
+
 </BOUCLE_art>
 [(#ENV{format_envoi}|=={plain}|oui)
 	#FILTRE{supprimer_tags|filtrer_entites|trim}]
