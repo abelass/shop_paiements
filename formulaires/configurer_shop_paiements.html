@@ -1,6 +1,6 @@
 <div class="formulaire_spip formulaire_configurer formulaire_#FORM">
 
-	<h3 class="titrem"><:paiements:cfg_titre_parametrages:></h3>
+	<h3 class="titrem"><:paiement:cfg_titre_parametrages:></h3>
 
 	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
@@ -10,74 +10,74 @@
 		#ACTION_FORMULAIRE{#ENV{action}}
 		<ul>
 		    <li class="fieldset">
-            <fieldset><legend><:paiements:titre_details_commercant:></legend>
+            <fieldset><legend><:paiement:titre_details_commercant:></legend>
                 <ul>
               [(#SAISIE{input,nom_societe,
-                label=<:paiements:titre_nom_societe:>,
+                label=<:paiement:titre_nom_societe:>,
                 })]
               [(#SAISIE{textarea,adresse,
-                label=<:paiements:titre_adresse:>,
+                label=<:paiement:titre_adresse:>,
                 })]
               [(#SAISIE{input,telephone,
-                label=<:paiements:titre_telephone:>,
+                label=<:paiement:titre_telephone:>,
                 })] 
               [(#SAISIE{input,mobile,
-                label=<:paiements:titre_mobile:>,
+                label=<:paiement:titre_mobile:>,
                 })] 
               [(#SAISIE{input,tva,
-                label=<:paiements:titre_tva:>,
+                label=<:paiement:titre_tva:>,
                 })] 
               [(#SAISIE{input,nr_entreprise,
-                label=<:paiements:titre_nr_entreprise:>,
+                label=<:paiement:titre_nr_entreprise:>,
                 })]                 
               [(#SAISIE{input,nr_compte,
-                label=<:paiements:titre_nr_compte:>,
+                label=<:paiement:titre_nr_compte:>,
                 })]
               [(#SAISIE{input,iban,
-                label=<:paiements:titre_iban:>,
+                label=<:paiement:titre_iban:>,
                 })] 
               [(#SAISIE{input,bic,
-                label=<:paiements:titre_bic:>,
+                label=<:paiement:titre_bic:>,
                 })]                                
                 </ul>
             </fieldset>  		        
 		    </li>
 		    <li class="fieldset">
-		    <fieldset><legend><:paiements:titre_paiements:></legend>
+		    <fieldset><legend><:paiement:titre_paiements:></legend>
 		        <ul>
     			[(#SAISIE{checkbox, type_paiements,
-    				label=<:paiements:titre_type_paiements:>,
+    				label=<:paiement:titre_type_paiements:>,
     				datas=#ARRAY{
-    				    cash,<:paiements:cash:>,
-    				    paypal,<:paiements:paypal:>,	
-    				    virement,<:paiements:virement:>,
-    				    cheque,<:paiements:cheque:>,    				    
-    				    atos,<:paiements:atos:>,
-    				    atos_perl,<:paiements:atos_perl:>,    				    
+    				    cash,<:paiement:cash:>,
+    				    paypal,<:paiement:paypal:>,	
+    				    virement,<:paiement:virement:>,
+    				    cheque,<:paiement:cheque:>,    				    
+    				    atos,<:paiement:atos:>,
+    				    atos_perl,<:paiement:atos_perl:>,    				    
     				}
     				})]
 
     		<BOUCLE_messages(DATA){source tableau,#CONFIG{shop_paiements/type_paiements}}>
     		<li  class="fieldset">
-    		    <fieldset><legend>[(#VAL{shop_paiements:configurations_specifiques}|_T)] [(#VAL{shop_paiements:#VALEUR}|_T)]</legend>
+    		    <fieldset><legend>[(#VAL{paiement:configurations_specifiques}|_T)] [(#VAL{shop_paiements:#VALEUR}|_T)]</legend>
     		    <ul>
     		 [(#SAISIE{textarea,message_paiement_#VALEUR,
-                    label=[(#VAL{shop_paiements:titre_message_paiement}|_T)],
+                    label=[(#VAL{paiement:titre_message_paiement}|_T)],
                     })]
             [(#VALEUR|=={atos_perl}|oui)
                 [(#SAISIE{input,merchant_id_#VALEUR,
-                    explication=<:paiements:obligatoire:>,
-                    label=[(#VAL{shop_paiements:merchant_id}|_T)],
+                    explication=<:paiement:obligatoire:>,
+                    label=[(#VAL{paiement:merchant_id}|_T)],
                     })]
                 [(#SAISIE{pays,merchant_country_#VALEUR,
                     defaut=70,
-                    label=[(#VAL{shop_paiements:titre_message_paiement_#VALEUR}|_T)],
+                    label=[(#VAL{paiement:titre_message_paiement_#VALEUR}|_T)],
                     })]                                        
             ]
             [(#VALEUR|=={cheque}|oui)
                 [(#SAISIE{textarea,adresse_cheque,
                         defaut=[(#CONFIG{shop_paiements/adresse})],
-                        label=<:paiements:titre_message_adresse_cheque:>,
+                        label=<:paiement:titre_message_adresse_cheque:>,
                         })]
             ]
                           </ul> 

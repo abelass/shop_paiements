@@ -1,6 +1,6 @@
 <BOUCLE_commande(COMMANDES){id_commande=#ID}{statut ?}>
 <div class="champ contenu_type_paiement[ (#TYPE_PAIEMENT*|strlen|?{'',vide})]">
-    <label><:paiements:label_type_paiement:></label>
+    <label><:paiement:label_type_paiement:></label>
     <span dir='#LANG_DIR' class='#EDIT{type_paiement} type_paiement'>[(#VAL{paiements:#TYPE_PAIEMENT}|_T)]</span>
 </div>
 </BOUCLE_commande>

@@ -21,7 +21,7 @@
 <p><:commandes:commande_date:> : #DATE</p>
 <p><:commandes:modifier_commande_statut:> [(#STATUT|commandes_lister_statuts)]</p>
 [(#ENV{qui}|=={client}|non)
-    [<p><:paiements:label_type_paiement:> (#VAL{shop_paiements:#TYPE_PAIEMENT}|_T)</p>]
+    [<p><:paiement:label_type_paiement:> (#VAL{shop_paiements:#TYPE_PAIEMENT}|_T)</p>]
     ]
 
 <p><:commandes:details_commande:></p>
