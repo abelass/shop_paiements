@@ -14,6 +14,7 @@
 <p><:commandes:merci_de_votre_commande:></p>]
 [(#ENV{qui}|=={client}|non)
 <p><:commandes:une_commande_de:>#GET{nom_client}</p>]
+<!--extra_client-->
 
 <h3><:commandes:recapitulatif:></h3>
 
@@ -23,6 +24,7 @@
 [(#ENV{qui}|=={client}|non)
     [<p><:paiements:label_type_paiement:> (#VAL{shop_paiements:#TYPE_PAIEMENT}|_T)</p>]
     ]
+<!--extra_commande-->
 
 <p><:commandes:details_commande:></p>
 <INCLURE{fond=inclure/commande,id_commande=#ID_COMMANDE,statut=#STATUT,format_envoi=#ENV{format_envoi}}>
