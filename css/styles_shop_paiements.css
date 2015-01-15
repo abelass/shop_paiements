@@ -1,5 +1,5 @@
 .formulaire_spip .liste-paiements li {
-	float:left;
+	display:inline-block;
 	margin-left:1em;
 	list-style:none}
 	
